@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import React from "react";
+import Navbar from "./component/Navbar.js";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
+import Home from "./pages/Home.js";
+import Nforms from "./pages/N_forms.js";
+import Blogs from "./pages/blogs";
+import SignUp from "./pages/oop_python.js";
+import SignUp2 from "./pages/signup.js";
+import Contact from "./pages/contact.js";
+import Amundi from "./pages/etfamundi";
+import ApiAmundi from "./pages/apiamundi";
+
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    <Navbar />
+    <Routes>
+        <Route exact path="/" element={<Home/>} />
+        <Route path="/n-forms" element={<Nforms/>} />
+        <Route path="/contact"  element={<Contact/>}/>
+        <Route path="/blogs" element={<Blogs/>} />
+        <Route path="/sign-up" element={<SignUp/>}/>
+        <Route path="/signup" element={<SignUp2/>} />
+        <Route path="/etfamundi" element={<Amundi/>}/>
+        <Route path="/apiamundi" element={<ApiAmundi/>}/>
+    </Routes>
+</Router>
+
+
+     
   );
 }
 
