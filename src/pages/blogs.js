@@ -3,471 +3,606 @@ import "./QCMStyles.css";
 
 // Flashcards pour le niveau basic
 const basicSlides = [
-    {
-        question: "Qu'est-ce que C# ?",
-        answer: "C# est un langage orienté objet moderne développé par Microsoft, utilisé pour le web, les applications desktop, mobiles, le cloud et les jeux (Unity)."
-      },
-      {
-        question: "Qu’est-ce que le SDK .NET ?",
-        answer: "Un ensemble d’outils incluant le compilateur C#, des bibliothèques et une interface en ligne de commande pour compiler et exécuter du code C#."
-      },
-      {
-        question: "Quelle commande CLI permet de créer un nouveau projet console en C# ?",
-        answer: "`dotnet new console -n MonProjet`"
-      },
-      {
-        question: "Comment exécuter un projet C# créé avec .NET CLI ?",
-        answer: "`dotnet run`"
-      },
-      {
-        question: "Quels environnements de développement sont recommandés pour le C# ?",
-        answer: "Visual Studio (complet) ou Visual Studio Code (léger avec extensions C#)"
-      },
-      {
-        question: "Quels types d'applications peut-on créer avec le SDK .NET ?",
-        answer: "Applications console, web (ASP.NET), API REST, mobiles (Xamarin), jeux (Unity)"
-      },
-      {
-        question: "Donne un exemple de déclaration de variable avec type en C#.",
-        answer: "`int nombre = 10;` ou `string message = \"Bonjour\";`"
-      },
-      {
-        question: "Quels sont les opérateurs arithmétiques de base en C# ?",
-        answer: "`+`, `-`, `*`, `/`, `%` (modulo)"
-      },
-      {
-        question: "Quels sont les opérateurs de comparaison en C# ?",
-        answer: "`==`, `!=`, `<`, `>`, `<=`, `>=`"
-      },
-      {
-        question: "Quelle structure contrôle le flux selon une condition ?",
-        answer: "`if`, `else if`, `else` ou `switch-case`"
-      },
-      {
-        question: "Quels types de boucles peut-on utiliser en C# ?",
-        answer: "`for`, `while`, `foreach`"
-      },
-      {
-        question: "Comment déclare-t-on un tableau en C# ?",
-        answer: "`int[] nombres = new int[3] { 1, 2, 3 };`"
-      },
-      {
-        question: "Donne deux opérations courantes sur les chaînes de caractères en C#.",
-        answer: "`ToUpper()`, `Replace()`, `Length`, `ToLower()`"
-      },
-      {
-        question: "Quelle classe permet de gérer les dates en C# ?",
-        answer: "`DateTime`"
-      },
-      {
-        question: "Comment créer une date future avec DateTime ?",
-        answer: "`DateTime dateFuture = DateTime.Now.AddDays(7);`"
-      },
-      {
-        question: "À quoi sert une énumération (`enum`) en C# ?",
-        answer: "À définir un ensemble de constantes nommées."
-      },
-      {
-        question: "Quel est un projet simple à faire en console pour s'exercer ?",
-        answer: "Une calculatrice avec conditions `if` ou `switch` pour gérer les opérations."
-      },
-      {
-        question: "Quelle application peut-on créer pour pratiquer la gestion de listes ?",
-        answer: "Une TODO list console : ajouter, supprimer, afficher des tâches avec `List<string>`"
-      },
-      {
-        question: "Pourquoi utilise-t-on `switch` plutôt que plusieurs `if` en C# ?",
-        answer: "Le `switch` est plus lisible et structuré pour comparer une seule variable à plusieurs cas précis, surtout avec des valeurs constantes comme des caractères ou des chaînes."
-      },
-      {
-        question: "Dans ce code, que fait le bloc `case 'B': Console.WriteLine(\"Bien\"); break;` si `char grade = 'B';` ?",
-        answer: "Il affiche 'Bien' car la variable `grade` correspond au `case 'B'`. Le `break` empêche l'exécution des autres cas."
-      },
-      {
-        question: "Comment est structurée une boucle `for` et quand l’utiliser ?",
-        answer: "`for (int i = 0; i < 5; i++)` : utile quand on connaît à l’avance le nombre d’itérations. Elle suit une initialisation, une condition de boucle et une incrémentation."
-      },
-      {
-        question: "Quel est le rôle d'une boucle `while` ?",
-        answer: "Elle exécute un bloc tant qu’une condition est vraie. Idéale quand on ne sait pas combien de fois on doit répéter le code à l'avance."
-      },
-      {
-        question: "Quand utiliser `foreach` en C# ?",
-        answer: "`foreach` est utilisé pour parcourir tous les éléments d’un tableau ou d’une collection sans manipuler d’index manuellement. Très pratique et sécurisé."
-      },
-      {
-        question: "Comment fonctionne une mini-calculatrice en console C# ?",
-        answer: "Elle lit deux `double` depuis le clavier, puis lit un caractère d’opération. Un `switch` traite cette opération et affiche le résultat via `Console.WriteLine()`."
-      },
-      {
-        question: "Quels éléments fondamentaux sont mobilisés dans le projet calculatrice ?",
-        answer: "Entrée utilisateur (`ReadLine`), parsing (`Convert.ToDouble`), conditions (`switch`) et affichage (`Console.WriteLine`)."
-      },
-      {
-        question: "Dans le projet de gestion de tâches, que fait l’utilisateur ?",
-        answer: "Il interagit avec un menu dans une boucle `while`, ajoute/supprime des tâches via `List<string>`, et affiche la liste avec un `foreach`."
-      },
-      {
-        question: "Comment supprimer un élément d’une liste par son index ?",
-        answer: "`taches.RemoveAt(index);` — Supprime la tâche située à l’index donné dans la liste `taches`."
-      },
-      {
-        question: "Pourquoi utilise-t-on `Environment.Exit(0);` dans ce code ?",
-        answer: "Pour terminer proprement l'exécution du programme console lorsqu’un utilisateur sélectionne l’option Quitter."
-      },
-      //oop
-      {
-        question: "Qu'est-ce qu'une classe en C# ?",
-        answer: "Une classe est un modèle ou un plan qui définit les propriétés et comportements d'un objet. Elle sert de blueprint pour créer des instances appelées objets."
-      },
-      {
-        question: "Quelle est la différence entre une classe et un objet en C# ?",
-        answer: "Une classe est une définition abstraite (blueprint), tandis qu'un objet est une instance concrète créée à partir de cette classe."
-      },
-      {
-        question: "📥 À quoi sert un getter en C# ?",
-        answer: "Un getter permet d’accéder à la valeur d’un attribut privé via une propriété publique. Ex : `public int Age { get { return age; } }`"
-      },
-      {
-        question: "📤 À quoi sert un setter en C# ?",
-        answer: "Un setter permet de modifier la valeur d’un attribut privé via une propriété publique. Ex : `public int Age { set { age = value; } }`"
-      },
-      {
-        question: "💡 Quelle est la syntaxe standard d'une propriété avec getter et setter en C# ?",
-        answer: "`public int Age { get; set; }` — permet d’accéder et de modifier automatiquement l’attribut sous-jacent."
-      },
-      {
-        question: "🔐 Pourquoi utiliser des getters et setters plutôt que des attributs publics ?",
-        answer: "Pour encapsuler l’accès aux données, appliquer des contrôles, et éviter que des valeurs incorrectes soient affectées directement."
-      },
-      {
-        question: "Qu'est-ce que l'héritage en POO ?",
-        answer: "L'héritage permet à une classe (classe dérivée) de réutiliser les membres (propriétés, méthodes) d'une autre classe (classe de base). Cela favorise la réutilisabilité du code."
-      },
-      {
-        question: "Donnez un exemple de polymorphisme en C#.",
-        answer: "Le polymorphisme permet aux objets de prendre plusieurs formes. Par exemple, une méthode peut être redéfinie dans une classe dérivée avec 'override' pour modifier son comportement."
-      },
-      {
-        question: "Qu'est-ce que l'encapsulation ?",
-        answer: "L'encapsulation consiste à masquer les détails internes d'une classe tout en exposant une interface publique contrôlée. Les propriétés privées sont généralement accessibles via des accesseurs (get/set)."
-      },
-      {
-        question: "🔄 Qu’est-ce que le polymorphisme en POO ?",
-        answer: "Le polymorphisme permet à des objets de classes différentes d’être traités comme s’ils étaient du même type (souvent via une classe parente ou interface)."
-      },
-      {
-        question: "⚙️ Quels sont les deux types principaux de polymorphisme ?",
-        answer: "1. Polymorphisme d’exécution (override) — via héritage. 2. Polymorphisme de compilation (overload) — via surcharge des méthodes."
-      },
-      {
-        question: "🔁 Qu’est-ce que le polymorphisme d’exécution ?",
-        answer: "C’est lorsqu’une méthode est redéfinie (`override`) dans une classe dérivée pour changer son comportement tout en conservant sa signature."
-      },
-      {
-        question: "🧱 Qu’est-ce que le polymorphisme de compilation ?",
-        answer: "C’est la possibilité de définir plusieurs méthodes avec le même nom mais des signatures différentes (types ou nombre d’arguments)."
-      },
-      {
-        question: "📐 Qu’est-ce que l’héritage simple ?",
-        answer: "Une classe dérive d’une seule classe de base. Exemple : `class Voiture : Vehicule`"
-      },
-      {
-        question: "🔗 Qu’est-ce que l’héritage multiple (simulé en C#) ?",
-        answer: "C# ne permet pas l’héritage multiple de classes, mais il le simule via l’implémentation de plusieurs interfaces. Ex : `class Oiseau : IVolant, IAnimal`"
-      },
-      {
-        question: "Qu'est-ce qu'une interface en C# ?",
-        answer: "Une interface définit un contrat que les classes doivent implémenter. Elle spécifie des méthodes et propriétés sans fournir d'implémentation concrète."
-      },
-      {
-        question: "Pourquoi utiliser l'injection de dépendances ?",
-        answer: "L'injection de dépendances favorise la modularité et la testabilité en fournissant les dépendances nécessaires à une classe plutôt que de les créer directement."
-      },
-      {
-        question: "Qu'est-ce qu'un type générique en C# ?",
-        answer: "Un type générique permet de créer des classes, interfaces ou méthodes réutilisables pour différents types de données, comme List<T> ou Dictionary<TKey, TValue>."
-      },
-      {
-        question: "Quelle est la différence entre un type valeur et un type référence ?",
-        answer: "Les types valeur (ex. int, float) sont stockés directement dans la pile, tandis que les types référence (ex. classes, tableaux) sont stockés dans le tas avec une référence pointant vers leur emplacement."
-      },
-      {
-        question: "Comment structurer un projet en couches ?",
-        answer: "Un projet bien structuré est organisé en couches : présentation (UI), métier (business logic), accès aux données (data access) et modèles/utilitaires partagés (common)."
-      },
-      {
-        question: "Quelles sont les bonnes pratiques pour nommer les variables et méthodes en C# ?",
-        answer: "Utilisez des noms descriptifs et suivez les conventions de nommage : PascalCase pour les classes/méthodes et camelCase pour les variables."
-      },
-      {
-        question: "Qu'est-ce que le principe SOLID ?",
-        answer: "SOLID est un ensemble de principes de conception orientée objet : Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation et Dependency Inversion."
-      },
-      {
-        question: "Pourquoi utiliser des tests unitaires ?",
-        answer: "Les tests unitaires valident chaque composant individuellement, garantissant que le code fonctionne correctement et réduisant les risques de régression lors des modifications."
-      },
-      {
-        question: "Quelle est l'utilité des commentaires XML en C# ?",
-        answer: "Les commentaires XML documentent les classes, méthodes et paramètres pour améliorer la lisibilité et générer automatiquement de la documentation."
-      },
-      {
-        question: "Quelle est la syntaxe pour déclarer une classe en C# ?",
-        answer: "public class NomClasse { // Propriétés et méthodes }"
-      },
-      {
-        question: "Comment implémenter une interface en C# ?",
-        answer: "Utilisez le mot-clé 'implements' pour indiquer qu'une classe respecte un contrat défini par une interface. Exemple : public class MaClasse : IMonInterface { }"
-      },
-      {
-        question: "Quelle est la différence entre 'virtual' et 'override' en C# ?",
-        answer: "'virtual' permet de définir une méthode pouvant être redéfinie, tandis que 'override' redéfinit cette méthode dans une classe dérivée."
-      },
-      {
-        question: "Quel est l'avantage des types génériques ?",
-        answer: "Les types génériques permettent de créer des structures réutilisables pour différents types de données, augmentant la flexibilité et réduisant la duplication de code."
-      },
-      {
-        question: "Qu'est-ce qu'une méthode statique en C# ?",
-        answer: "Une méthode statique appartient à la classe elle-même plutôt qu'à une instance spécifique. Elle est appelée avec le nom de la classe. Exemple : Math.Sqrt(16);"
-      },
-      {
-        question: "Quelle est la différence entre 'abstract' et 'sealed' en C# ?",
-        answer: "'abstract' indique qu'une classe ou méthode doit être implémentée par une classe dérivée, tandis que 'sealed' empêche une classe ou méthode d'être héritée ou redéfinie."
-      },
-      {
-        question: "Quelle est l'utilité des énumérations (enum) en C# ?",
-        answer: "Les énumérations définissent un ensemble de constantes nommées, rendant le code plus lisible et maintenable. Exemple : enum JoursSemaine { Lundi, Mardi };"
-      }
-
+  {
+    "question": "Quel est le rôle du BA lors du cadrage du besoin ?",
+    "answer": "Recueillir les besoins métier, animer les ateliers et formaliser les enjeux."
+  },
+  {
+    "question": "Comment le BI intervient-il dans la phase de cadrage du besoin ?",
+    "answer": "Il identifie les sources de données utiles et valide les KPIs à suivre."
+  },
+  {
+    "question": "Quel est le rôle de la MOA durant le cadrage du besoin ?",
+    "answer": "Définir les objectifs métier et rédiger un cahier des charges."
+  },
+  {
+    "question": "Quelles sont les tâches du BA dans l’analyse fonctionnelle ?",
+    "answer": "Rédiger les spécifications fonctionnelles (UML, BPMN) et définir les cas d’usage."
+  },
+  {
+    "question": "Quel est le rôle du BI lors de l’analyse fonctionnelle ?",
+    "answer": "Proposer les indicateurs, formats et axes de pilotage."
+  },
+  {
+    "question": "Que fait la MOA pendant l’analyse fonctionnelle ?",
+    "answer": "Valide les fonctionnalités souhaitées et hiérarchise les besoins."
+  },
+  {
+    "question": "Quel est le rôle du BA lors de la conception de la solution ?",
+    "answer": "Collaborer avec la MOE et le métier pour valider la solution cible."
+  },
+  {
+    "question": "Que fait le BI pendant la phase de conception ?",
+    "answer": "Il modélise les tableaux de bord et le data model (dimensions, mesures)."
+  },
+  {
+    "question": "Comment intervient la MOA durant la conception de la solution ?",
+    "answer": "Elle s’assure que la solution répond aux objectifs métier."
+  },
+  {
+    "question": "Quelles sont les responsabilités du BA pendant la réalisation ?",
+    "answer": "Suivre l’avancement, clarifier les demandes (Agile), faire le lien MOA/MOE."
+  },
+  {
+    "question": "Quelles tâches le BI effectue-t-il en phase de réalisation ?",
+    "answer": "Préparer les requêtes SQL, ETL et créer les dashboards Power BI / Tableau."
+  },
+  {
+    "question": "Comment la MOA intervient-elle pendant la réalisation du projet ?",
+    "answer": "Elle valide les grandes orientations en cours de projet."
+  },
+  {
+    "question": "Quel est le rôle du BA lors de la phase de recette ?",
+    "answer": "Rédiger les scénarios de tests (UAT) et coordonner les utilisateurs."
+  },
+  {
+    "question": "Comment le BI participe-t-il aux tests ?",
+    "answer": "Il contrôle la qualité des données et du reporting."
+  },
+  {
+    "question": "Que fait la MOA pendant la phase de suivi et d’évolutions ?",
+    "answer": "Elle planifie les nouvelles versions et assure la gouvernance du projet."
+  },
+  {
+    "question": "Comment diagnostiquez-vous un incident métier ou technique ?",
+    "answer": "Je recueille d'abord les symptômes (logs, retours utilisateurs), isole la source via une analyse des données ou logs, puis utilise des requêtes SQL pour extraire des informations critiques. Enfin, je collabore avec les équipes pour une résolution rapide."
+  },
+  {
+    "question": "Donnez un exemple où vous avez identifié une incohérence dans des données.",
+    "answer": "J'ai détecté des doublons dans une table de clients avec une requête `SELECT COUNT(*) vs COUNT(DISTINCT client_id)`. J’ai ensuite proposé un script de nettoyage pour corriger le problème."
+  },
+  {
+    "question": "Comment compteriez-vous le nombre de commandes par client ?",
+    "answer": "Avec la requête SQL : `SELECT client_id, COUNT(*) AS nb_commandes FROM commandes GROUP BY client_id;`"
+  },
+  {
+    "question": "Expliquez la différence entre LEFT JOIN et INNER JOIN.",
+    "answer": "INNER JOIN retourne uniquement les lignes avec correspondance dans les deux tables, tandis que LEFT JOIN retourne toutes les lignes de la table gauche, même sans correspondance (valeurs NULL à droite)."
+  },
+  {
+    "question": "Comment optimiseriez-vous une requête SQL lente ?",
+    "answer": "J’analyse le plan d’exécution pour identifier les scans de table, ajoute des index sur les colonnes filtrées (WHERE/JOIN), et évite les `SELECT *` inutiles."
+  },
+  {
+    "question": "Comment transférez-vous un fichier via SFTP en ligne de commande ?",
+    "answer": "Avec la commande : `sftp user@serveur:/distant/chemin < fichier_local` ou interactivement via `sftp user@serveur` puis `put fichier_local`."
+  },
+  {
+    "question": "Comment lister les tâches cron pour un utilisateur ?",
+    "answer": "Avec la commande : `crontab -l`."
+  },
+  {
+    "question": "Que feriez-vous si un batch échoue ?",
+    "answer": "Je vérifie les logs pour identifier l’erreur, relance manuellement si possible, et analyse la cause (ex : fichier manquant, problème de connexion)."
+  },
+  {
+    "question": "Quels indicateurs suivriez-vous pour une application critique ?",
+    "answer": "Temps de réponse, taux d’erreurs HTTP (5xx), disponibilité (SLA > 99.9%), et l’état des batchs nocturnes."
+  },
+  {
+    "question": "Comment vérifier si un service est en cours d’exécution ?",
+    "answer": "Avec `systemctl status nom_service` ou `ps aux | grep nom_processus`."
+  },
+  {
+    "question": "Comment suivre les erreurs dans un fichier log en temps réel ?",
+    "answer": "Avec `tail -f fichier.log | grep \"ERROR\"`."
+  },
+  {
+    "question": "Comment tester si un port est ouvert sur un serveur ?",
+    "answer": "Avec `telnet ip port` ou `nc -zv ip port`."
+  },
+  {
+    "question": "Comment diagnostiquer une lenteur réseau ?",
+    "answer": "J’utilise `ping` pour la latence, `traceroute` pour le chemin, et `mtr` pour une analyse combinée."
+  },
+  {
+    "question": "Comment détecter et supprimer des doublons dans une table SQL ?",
+    "answer": "Pour détecter : `SELECT colonne, COUNT(*) FROM table GROUP BY colonne HAVING COUNT(*) > 1`. Pour supprimer : utiliser une sous-requête avec `ROW_NUMBER()` ou créer une table temporaire avec les valeurs uniques."
+  },
+  {
+    "question": "Expliquez l'utilité des index en SQL avec un exemple concret.",
+    "answer": "Les index accélèrent les recherches. Exemple : `CREATE INDEX idx_client_nom ON clients(nom)` optimise les requêtes avec `WHERE nom = 'Dupont'`. Attention : trop d'index ralentit les INSERT/UPDATE."
+  },
+  {
+    "question": "Comment vérifier l'espace disque disponible sur un serveur Linux ?",
+    "answer": "Commande : `df -h` (affiche l'espace par partition) ou `du -sh /dossier` pour la taille d'un dossier spécifique."
+  },
+  {
+    "question": "Quelle commande utiliser pour rechercher un fichier contenant un mot-clé précis ?",
+    "answer": "`grep -r \"mot-clé\" /dossier/` (recherche récursive) ou combiné avec `find` : `find /dossier -type f -exec grep -l \"mot-clé\" {} +`."
+  },
+  {
+    "question": "Comment redémarrer un service sous Linux ?",
+    "answer": "`systemctl restart nom_service` (ou `service nom_service restart` sur les anciennes distributions)."
+  },
+  {
+    "question": "Qu'est-ce qu'un SLA ? Donnez un exemple métier.",
+    "answer": "Un SLA (Service Level Agreement) définit des engagements de performance. Exemple : 'Disponibilité de l'application à 99.95% sur un mois, sous peine de compensation financière'."
+  },
+  {
+    "question": "Comment extraire uniquement les 10 premières lignes d'un fichier CSV en ligne de commande ?",
+    "answer": "`head -n 10 fichier.csv` ou `sed -n '1,10p' fichier.csv`."
+  },
+  {
+    "question": "Comment monitorer les processus consommant le plus de CPU ?",
+    "answer": "`top` (tri interactif), ou `ps aux --sort=-%cpu | head -n 5` pour afficher les 5 processus les plus gourmands."
+  },
+  {
+    "question": "Quelle est la différence entre HTTP et HTTPS ? Pourquoi est-ce critique en production ?",
+    "answer": "HTTPS chiffre les données via SSL/TLS. Critique pour la sécurité (évite les attaques MITM, protège les données sensibles comme les mots de passe)."
+  },
+  {
+    "question": "Comment déboguer une requête API qui retourne une erreur 500 ?",
+    "answer": "1) Vérifier les logs côté serveur. 2) Utiliser `curl -v URL` pour inspecter les headers. 3) Tester avec un outil comme Postman en simplifiant la requête."
+  }
 ];
 
 // QCM pour les niveaux moyen et avancé
 const questions = {
   moyen: [
     {
-        "question": "Quelle est la sortie du code suivant ?\n\n```csharp\nint x = 10;\nint y = x;\ny = 20;\nConsole.WriteLine(x);```",
-        "options": [
-          "10",
-          "20",
-          "Erreur de compilation",
-          "Null"
-        ],
-        "answer": "10",
-        "explanation": "Les types valeur (comme int) sont copiés par valeur. Modifier 'y' ne change pas 'x'."
-      },
-      {
-        "question": "Quelle est la sortie du code suivant ?\n\n```csharp\npublic class Personne {\n    public string Nom { get; set; }\n}\n\nPersonne p1 = new Personne { Nom = \"Alice\" };\nPersonne p2 = p1;\np2.Nom = \"Bob\";\nConsole.WriteLine(p1.Nom);```",
-        "options": [
-          "Alice",
-          "Bob",
-          "Erreur de compilation",
-          "Null"
-        ],
-        "answer": "Bob",
-        "explanation": "Les types référence (comme les classes) partagent la même référence en mémoire. Modifier 'p2' affecte également 'p1'."
-      },
-      {
-        "question": "Quelle méthode implémente correctement l'encapsulation pour une propriété privée ?\n\n```csharp\n// Option 1\npublic class Compte {\n    private double solde;\n    public double GetSolde() => solde;\n    public void SetSolde(double value) => solde = value;\n}\n\n// Option 2\npublic class Compte {\n    public double Solde { get; private set; }\n}\n\n// Option 3\npublic class Compte {\n    public double Solde { get; set; }\n}```",
-        "options": [
-          "Option 1",
-          "Option 2",
-          "Option 3",
-          "Aucune des options"
-        ],
-        "answer": "Option 2",
-        "explanation": "L'encapsulation est mieux réalisée avec des propriétés auto-implémentées ayant un accesseur privé ('private set'), garantissant un contrôle sur les modifications."
-      },
-      {
-        "question": "Quelle est la sortie du code suivant ?\n\n```csharp\npublic abstract class Animal {\n    public virtual void Parler() {\n        Console.WriteLine(\"Animal parle\");\n    }\n}\n\npublic class Chien : Animal {\n    public override void Parler() {\n        Console.WriteLine(\"Chien aboie\");\n    }\n}\n\nAnimal monAnimal = new Chien();\nmonAnimal.Parler();```",
-        "options": [
-          "Animal parle",
-          "Chien aboie",
-          "Erreur de compilation",
-          "Null"
-        ],
-        "answer": "Chien aboie",
-        "explanation": "Le polymorphisme permet à la méthode 'Parler' de la classe dérivée (Chien) de remplacer celle de la classe de base (Animal)."
-      },
-      {
-        "question": "Quelle interface doit être implémentée pour créer une collection personnalisée énumérable en C# ?\n\n```csharp\npublic class MaCollection<T> : ??? {\n    // Implémentation ici\n}```",
-        "options": [
-          "`IEnumerable<T>`",
-          "`ICollection<T>`",
-          "`IList<T>`",
-          "`IDisposable`"
-        ],
-        "answer": "`IEnumerable<T>`",
-        "explanation": "Pour rendre une collection énumérable, il faut implémenter l'interface `IEnumerable<T>`, qui permet l'utilisation de boucles `foreach`."
-      },
-      {
-        "question": "Quelle est la meilleure façon d'injecter une dépendance dans une classe en C# ?\n\n```csharp\n// Option 1\npublic class Service {\n    private readonly ILogger logger;\n    public Service(ILogger logger) {\n        this.logger = logger;\n    }\n}\n\n// Option 2\npublic class Service {\n    private static readonly ILogger logger = new ConsoleLogger();\n}```",
-        "options": [
-          "Option 1",
-          "Option 2",
-          "Les deux sont équivalentes",
-          "Aucune des options"
-        ],
-        "answer": "Option 1",
-        "explanation": "L'injection de dépendances via le constructeur (Option 1) favorise la modularité et la testabilité, contrairement à l'instanciation directe (Option 2)."
-      },
-      {
-        "question": "Quelle est la sortie du code suivant ?\n\n```csharp\npublic class Boite<T> {\n    public T Contenu { get; set; }\n}\n\nBoite<int> boiteEntier = new Boite<int>();\nboiteEntier.Contenu = 42;\nConsole.WriteLine(boiteEntier.Contenu);```",
-        "options": [
-          "42",
-          "Erreur de compilation",
-          "Null",
-          "Boite`1"
-        ],
-        "answer": "42",
-        "explanation": "Les types génériques permettent de créer des classes réutilisables pour différents types. Ici, `Boite<int>` stocke un entier."
-      },
-      {
-        "question": "Quelle est la différence entre les deux méthodes suivantes ?\n\n```csharp\npublic void Afficher(string message) {\n    Console.WriteLine(message);\n}\n\npublic void Afficher(object message) {\n    Console.WriteLine(message.ToString());\n}```",
-        "options": [
-          "Aucune différence",
-          "La première méthode est spécifique aux chaînes, la deuxième accepte tout type",
-          "La première méthode est plus rapide",
-          "La deuxième méthode provoque une erreur de compilation"
-        ],
-        "answer": "La première méthode est spécifique aux chaînes, la deuxième accepte tout type",
-        "explanation": "La surcharge de méthodes permet de définir plusieurs versions d'une méthode avec des paramètres différents. La deuxième méthode accepte n'importe quel type grâce au type 'object'."
-      },
-      {
-        "question": "Quelle est la sortie du code suivant ?\n\n```csharp\npublic interface IVolant {\n    void Voler();\n}\n\npublic class Avion : IVolant {\n    public void Voler() {\n        Console.WriteLine(\"Avion vole\");\n    }\n}\n\nIVolant volant = new Avion();\nvolant.Voler();```",
-        "options": [
-          "Avion vole",
-          "Erreur de compilation",
-          "Null",
-          "IVolant vole"
-        ],
-        "answer": "Avion vole",
-        "explanation": "Une interface définit un contrat que les classes doivent implémenter. L'objet 'volant' utilise l'implémentation de la classe 'Avion'."
-      },
-      {
-        "question": "Quelle est la meilleure pratique pour structurer un projet en couches ?\n\n```plaintext\nOption 1:\nMonProjet/\n├── Controllers/\n├── Services/\n├── DataAccess/\n└── Models/\n\nOption 2:\nMonProjet/\n├── Clients/\n│   ├── ClientController.cs\n│   ├── ClientService.cs\n│   └── ClientRepository.cs\n└── Produits/\n    ├── ProduitController.cs\n    ├── ProduitService.cs\n    └── ProduitRepository.cs```",
-        "options": [
-          "Option 1",
-          "Option 2",
-          "Les deux sont équivalentes",
-          "Aucune des options"
-        ],
-        "answer": "Option 2",
-        "explanation": "Organiser le code par fonctionnalité (Option 2) améliore la lisibilité et la maintenabilité, car tous les fichiers liés à une fonctionnalité sont regroupés."
-      }
+      "question": "Quelle est l’interaction clé entre le BA et la MOE durant la phase de conception ?",
+      "options": [
+        "Le BA assiste uniquement à la rédaction du cahier des charges",
+        "Le BA rédige les tests fonctionnels pour la MOE",
+        "Le BA collabore avec la MOE pour valider la solution cible",
+        "Le BA ne participe pas à la conception technique"
+      ],
+      "answer": "Le BA collabore avec la MOE pour valider la solution cible",
+      "explanation": "Le BA joue un rôle central en travaillant avec la MOE pour assurer que la solution technique réponde bien aux besoins métier."
+    },
+    {
+      "question": "Quel livrable spécifique est produit par la MOA au moment du cadrage ?",
+      "options": [
+        "Les spécifications fonctionnelles",
+        "Un reporting BI",
+        "Un cahier des charges",
+        "Une modélisation UML"
+      ],
+      "answer": "Un cahier des charges",
+      "explanation": "La MOA formalise les objectifs métier dans un cahier des charges pour orienter les phases suivantes du projet."
+    },
+    {
+      "question": "Quelle est la priorité du BI dans la phase d’analyse fonctionnelle ?",
+      "options": [
+        "Valider les cas d’usage",
+        "Créer les dashboards",
+        "Proposer les indicateurs, formats et axes de pilotage",
+        "Faire le lien entre MOA et MOE"
+      ],
+      "answer": "Proposer les indicateurs, formats et axes de pilotage",
+      "explanation": "Le BI définit les éléments clés qui permettront d'assurer un pilotage efficace des données."
+    },
+    {
+      "question": "Qui est responsable de valider la conformité métier durant la recette ?",
+      "options": [
+        "MOE",
+        "MOA",
+        "BI",
+        "BA"
+      ],
+      "answer": "MOA",
+      "explanation": "La MOA s'assure que les livrables correspondent bien aux exigences métier initialement exprimées."
+    },
+    {
+      "question": "Dans quel cadre le BA clarifie-t-il les demandes en continu ?",
+      "options": [
+        "Modèle en cascade",
+        "Approche Agile",
+        "Cycle en V",
+        "Méthode Lean"
+      ],
+      "answer": "Approche Agile",
+      "explanation": "Le BA joue un rôle actif dans les échanges continus et l'adaptation des besoins dans un contexte Agile."
+    },
+    {
+      "question": "Quel est le rôle du BI pendant la livraison / déploiement ?",
+      "options": [
+        "Préparer les cas de test",
+        "Fournir les manuels et supports",
+        "Valider la conformité métier",
+        "Organiser la formation"
+      ],
+      "answer": "Fournir les manuels et supports",
+      "explanation": "Le BI accompagne le déploiement en mettant à disposition les outils, manuels et supports nécessaires aux utilisateurs."
+    },
+    {
+      "question": "Qui assure la gouvernance du projet dans la phase de suivi ?",
+      "options": [
+        "BA",
+        "MOA",
+        "BI",
+        "MOE"
+      ],
+      "answer": "MOA",
+      "explanation": "La MOA supervise les évolutions et planifie les nouvelles versions en garantissant l’alignement avec les enjeux métiers."
+    },
+    {
+      "question": "Quelle tâche distingue le BA lors de la phase de recette ?",
+      "options": [
+        "Créer les dashboards",
+        "Contrôler la qualité des données",
+        "Rédiger les scénarios de tests (UAT)",
+        "Préparer les requêtes SQL"
+      ],
+      "answer": "Rédiger les scénarios de tests (UAT)",
+      "explanation": "Le BA s’assure que les tests utilisateurs sont bien rédigés pour valider les fonctionnalités selon les besoins exprimés."
+    },
+    {
+      "question": "Quel livrable est typiquement produit par le BI en réalisation ?",
+      "options": [
+        "Manuels utilisateurs",
+        "Spécifications fonctionnelles",
+        "Dashboards dans Power BI ou Tableau",
+        "Cahier de charges"
+      ],
+      "answer": "Dashboards dans Power BI ou Tableau",
+      "explanation": "Le BI développe les interfaces de visualisation pour permettre aux utilisateurs de suivre les indicateurs définis."
+    },
+    {
+      "question": "En quoi consiste la contribution de la MOA à l’analyse fonctionnelle ?",
+      "options": [
+        "Écrire le code SQL",
+        "Hiérarchiser les besoins",
+        "Installer Power BI",
+        "Tester l’application"
+      ],
+      "answer": "Hiérarchiser les besoins",
+      "explanation": "La MOA clarifie et classe les besoins selon leur priorité pour guider les développements à venir."
+    },
+    {
+      "question": "Qui prend le GO pour le passage en production ?",
+      "options": [
+        "BA",
+        "BI",
+        "MOA",
+        "MOE"
+      ],
+      "answer": "MOA",
+      "explanation": "C’est la MOA qui autorise officiellement le passage en production en fonction de la conformité avec les besoins métiers."
+    },
+    {
+      "question": "Comment le BA contribue-t-il à la gestion des évolutions ?",
+      "options": [
+        "Déploie les outils BI",
+        "Collecte les retours d’usage et formalise les évolutions",
+        "Contrôle la qualité du reporting",
+        "Fait la formation des utilisateurs"
+      ],
+      "answer": "Collecte les retours d’usage et formalise les évolutions",
+      "explanation": "Le BA recueille les feedbacks utilisateurs et les traduit en demandes d’évolution fonctionnelle."
+    },
+    {
+      "question": "Quel acteur propose des axes de pilotage dès l’analyse fonctionnelle ?",
+      "options": [
+        "MOA",
+        "MOE",
+        "BI",
+        "BA"
+      ],
+      "answer": "BI",
+      "explanation": "Le BI apporte sa vision orientée données en proposant les axes de suivi les plus pertinents dès les premières phases."
+    },
+    {
+      "question": "Quelle est l’activité principale de la MOA lors du déploiement ?",
+      "options": [
+        "Rédiger les manuels utilisateurs",
+        "Organiser la mise en production et former les utilisateurs finaux",
+        "Créer les rapports SQL",
+        "Gérer les incidents techniques"
+      ],
+      "answer": "Organiser la mise en production et former les utilisateurs finaux",
+      "explanation": "La MOA coordonne les parties prenantes et s’assure que les utilisateurs sont prêts à utiliser la solution."
+    },
+    {
+      "question": "Pourquoi le lien entre MOA et MOE est-il assuré par le BA ?",
+      "options": [
+        "Car le BA code la solution",
+        "Car le BA assure la conformité légale",
+        "Car le BA assure la cohérence entre besoins métiers et solution technique",
+        "Car le BA déploie les dashboards"
+      ],
+      "answer": "Car le BA assure la cohérence entre besoins métiers et solution technique",
+      "explanation": "Le rôle du BA est de faire l’interface entre les utilisateurs métier et les équipes techniques pour garantir l’alignement du livrable avec les attentes initiales."
+    }
   ],
   avance: [
     {
-        "question": "Quel est le rôle du Modèle Conceptuel des Données (MCD) dans Merise ?",
-        "options": [
-          "Décrire le code source",
-          "Représenter les processus métier",
-          "Représenter les entités et leurs relations",
-          "Créer des interfaces utilisateur"
-        ],
-        "answer": "Représenter les entités et leurs relations",
-        "explanation": "Le MCD modélise la structure logique des données avec entités, associations et cardinalités."
-      },
-      {
-        "question": "Quelle est une limite principale de la méthode Merise ?",
-        "options": [
-          "Elle n’est pas adaptée aux bases de données relationnelles",
-          "Elle ne prend pas en compte les traitements métier",
-          "Elle est peu compatible avec les méthodes agiles",
-          "Elle ne propose pas de représentation graphique"
-        ],
-        "answer": "Elle est peu compatible avec les méthodes agiles",
-        "explanation": "Sa structure rigide et documentaire rend son usage difficile dans les environnements agiles."
-      },
-      {
-        "question": "Quel diagramme UML permet de représenter les classes, attributs, méthodes et relations ?",
-        "options": [
-          "Diagramme d’activités",
-          "Diagramme de classes",
-          "Diagramme d’états",
-          "Diagramme de séquence"
-        ],
-        "answer": "Diagramme de classes",
-        "explanation": "Le diagramme de classes est un diagramme structurel montrant les classes et leurs relations."
-      },
-      {
-        "question": "Quel diagramme UML est utilisé pour représenter le comportement temporel entre objets ?",
-        "options": [
-          "Diagramme de composants",
-          "Diagramme de séquence",
-          "Diagramme d’objets",
-          "Diagramme de déploiement"
-        ],
-        "answer": "Diagramme de séquence",
-        "explanation": "Le diagramme de séquence représente les échanges temporels entre objets pour un scénario donné."
-      },
-      {
-        "question": "Quel est l’objectif du test UAT ?",
-        "options": [
-          "Tester l'intégration des composants",
-          "Vérifier la logique métier par les développeurs",
-          "Valider que le système répond aux besoins métier",
-          "Mesurer la performance du backend"
-        ],
-        "answer": "Valider que le système répond aux besoins métier",
-        "explanation": "UAT est réalisé par les utilisateurs pour s'assurer que le produit est conforme aux attentes fonctionnelles."
-      },
-      {
-        "question": "Quelle est la première étape du cycle TDD ?",
-        "options": [
-          "Implémenter le code",
-          "Refactoriser",
-          "Écrire un test qui passe",
-          "Écrire un test qui échoue"
-        ],
-        "answer": "Écrire un test qui échoue",
-        "explanation": "Le cycle TDD commence toujours par l’écriture d’un test qui échoue pour guider le développement."
-      },
-      {
-        "question": "Quelle est la principale différence entre BDD et TDD ?",
-        "options": [
-          "TDD est manuel, BDD est automatique",
-          "BDD se concentre sur les comportements métiers, TDD sur le code",
-          "TDD utilise Gherkin, BDD utilise JUnit",
-          "BDD est fait après le développement, TDD avant"
-        ],
-        "answer": "BDD se concentre sur les comportements métiers, TDD sur le code",
-        "explanation": "BDD exprime les comportements attendus en langage naturel, tandis que TDD teste des unités de code."
-      },
-      {
-        "question": "Quel outil est utilisé pour les tests E2E ?",
-        "options": [
-          "pytest",
-          "Selenium",
-          "JUnit",
-          "Cucumber"
-        ],
-        "answer": "Selenium",
-        "explanation": "Selenium est un outil populaire pour l’automatisation de scénarios utilisateur en E2E Testing."
-      },
-      {
-        "question": "Quels tests sont utilisés pour vérifier qu’aucune fonctionnalité existante n’est cassée après modification ?",
-        "options": [
-          "UT",
-          "RT",
-          "TDD",
-          "BDD"
-        ],
-        "answer": "RT",
-        "explanation": "Le Regression Testing (RT) permet de vérifier qu’aucune régression n’a été introduite dans le code existant."
-      },
-      {
-        "question": "Quel type de test permet de valider l’intégration complète entre tous les composants ?",
-        "options": [
-          "Unit Testing",
-          "End-to-End Testing",
-          "BDD",
-          "Mock Testing"
-        ],
-        "answer": "End-to-End Testing",
-        "explanation": "L’E2E Testing simule un parcours utilisateur complet à travers tous les composants du système."
-      }
+      "question": "Quelle méthode utiliseriez-vous en priorité pour diagnostiquer un incident applicatif ?",
+      "options": [
+        "Lancer une analyse post-mortem immédiatement",
+        "Extraire les logs et données métiers pertinentes",
+        "Redémarrer immédiatement le serveur",
+        "Contacter le support sans investigation"
+      ],
+      "answer": "Extraire les logs et données métiers pertinentes",
+      "explanation": "L'extraction des logs et données critiques permet d'identifier la racine du problème avant toute action corrective."
+    },
+    {
+      "question": "Quelle requête compte le nombre de clients uniques ayant passé commande ?",
+      "options": [
+        "SELECT COUNT(*) FROM clients;",
+        "SELECT COUNT(DISTINCT client_id) FROM commandes;",
+        "SELECT SUM(client_id) FROM commandes;",
+        "SELECT client_id FROM commandes GROUP BY client_id;"
+      ],
+      "answer": "SELECT COUNT(DISTINCT client_id) FROM commandes;",
+      "explanation": "COUNT(DISTINCT) élimine les doublons pour compter les clients unifsques dans la table commandes."
+    },
+    {
+      "question": "Quel protocole garantit un transfert sécurisé de fichiers ?",
+      "options": [
+        "FTP",
+        "SFTP",
+        "HTTP",
+        "Telnet"
+      ],
+      "answer": "SFTP",
+      "explanation": "SFTP (SSH File Transfer Protocol) chiffre les données durant le transfert, contrairement à FTP."
+    },
+    {
+      "question": "Comment planifier une tâche quotidienne à 2h00 du matin avec cron ?",
+      "options": [
+        "0 2 * * * /script.sh",
+        "* * 2 * * /script.sh",
+        "2 0 * * * /script.sh",
+        "0 * 2 * * /script.sh"
+      ],
+      "answer": "0 2 * * * /script.sh",
+      "explanation": "La syntaxe cron est 'minute heure * * *'. Ici, '0 2' signifie à 2h00 pile chaque jour."
+    },
+    {
+      "question": "Quel outil permet de visualiser des métriques temps réel via des dashboards ?",
+      "options": [
+        "Nagios",
+        "Grafana",
+        "Wireshark",
+        "Jenkins"
+      ],
+      "answer": "Grafana",
+      "explanation": "Grafana est spécialisé dans la visualisation de métriques (ex : temps de réponse, CPU) avec des graphiques."
+    },
+    {
+      "question": "Quelle commande affiche les 10 dernières lignes d'un fichier log ?",
+      "options": [
+        "head -n 10 fichier.log",
+        "cat fichier.log | top 10",
+        "tail -n 10 fichier.log",
+        "grep -n 10 fichier.log"
+      ],
+      "answer": "tail -n 10 fichier.log",
+      "explanation": "tail -n X affiche les X dernières lignes d'un fichier, utile pour les logs récents."
+    },
+    {
+      "question": "Comment tester la connectivité à un serveur sur le port 443 ?",
+      "options": [
+        "ping 443",
+        "telnet serveur 443",
+        "curl http://serveur:443",
+        "netstat serveur 443"
+      ],
+      "answer": "telnet serveur 443",
+      "explanation": "telnet vérifie si un port est ouvert (ici, le port HTTPS 443). Si la connexion réussit, le port est accessible."
+    },
+    {
+      "question": "Quel index SQL améliore les performances d'une requête avec WHERE et ORDER BY ?",
+      "options": [
+        "Un index unique",
+        "Un index composite sur les colonnes WHERE et ORDER BY",
+        "Un index partiel",
+        "Un index bitmap"
+      ],
+      "answer": "Un index composite sur les colonnes WHERE et ORDER BY",
+      "explanation": "Un index composite couvrant les conditions de filtrage (WHERE) et de tri (ORDER BY) réduit les opérations de table scan."
+    },
+    {
+      "question": "Quelle commande Linux permet de trouver tous les fichiers modifiés dans les dernières 24h ?",
+      "options": [
+        "find / -type f -days 1",
+        "find / -type f -mtime -1",
+        "ls -l | grep '24h'",
+        "grep -r \"24h\" /"
+      ],
+      "answer": "find / -type f -mtime -1",
+      "explanation": "find avec -mtime -1 liste les fichiers modifiés il y a moins de 24h (1 journée)."
+    },
+    {
+      "question": "Quelle jointure SQL retourne uniquement les lignes avec correspondance dans les deux tables ?",
+      "options": [
+        "LEFT JOIN",
+        "FULL OUTER JOIN",
+        "INNER JOIN",
+        "CROSS JOIN"
+      ],
+      "answer": "INNER JOIN",
+      "explanation": "INNER JOIN filtre strictement les lignes présentes dans les deux tables, contrairement à LEFT/FULL JOIN."
+    },
+    {
+      "question": "Quelle méthode permet de détecter les valeurs aberrantes dans un jeu de données ?",
+      "options": [
+        "Utiliser AVG() en SQL",
+        "Analyse des percentiles (ex: boîte à moustaches)",
+        "Compter les lignes avec COUNT(*)",
+        "Trier les données par ordre alphabétique"
+      ],
+      "answer": "Analyse des percentiles (ex: boîte à moustaches)",
+      "explanation": "L'analyse par percentiles (comme Q1/Q3) identifie statistiquement les valeurs extrêmes en dehors de l'intervalle interquartile."
+    },
+    {
+      "question": "Quel est l'impact d'un INDEX sur une table fréquemment mise à jour ?",
+      "options": [
+        "Accélère les SELECT mais ralentit les INSERT/UPDATE",
+        "Désynchronise les réplicas de base de données",
+        "Double la taille de la table",
+        "Aucun impact sur les performances"
+      ],
+      "answer": "Accélère les SELECT mais ralentit les INSERT/UPDATE",
+      "explanation": "Les index améliorent les lectures mais nécessitent des mises à jour supplémentaires lors des écritures."
+    },
+    {
+      "question": "Comment identifier tous les processus utilisant plus de 50% de CPU ?",
+      "options": [
+        "ps aux | awk '$3 > 50'",
+        "top -p 50",
+        "grep 'CPU' /proc/meminfo",
+        "netstat -tuln | grep 50"
+      ],
+      "answer": "ps aux | awk '$3 > 50'",
+      "explanation": "La colonne 3 de 'ps aux' montre le %CPU. Awk filtre les processus dépassant 50%."
+    },
+    {
+      "question": "Quelle commande archive un dossier en conservant les permissions ?",
+      "options": [
+        "zip -r archive.zip dossier",
+        "tar czvf archive.tar.gz dossier",
+        "cp -p dossier archive",
+        "rsync --perms dossier/ archive/"
+      ],
+      "answer": "tar czvf archive.tar.gz dossier",
+      "explanation": "tar avec l'option 'z' (compression gzip) et 'p' (conservation des permissions) est idéal pour l'archivage."
+    },
+    {
+      "question": "Quel outil permet d'analyser des paquets réseau en temps réel ?",
+      "options": [
+        "nslookup",
+        "tcpdump",
+        "crontab -l",
+        "df -h"
+      ],
+      "answer": "tcpdump",
+      "explanation": "tcpdump capture et analyse le trafic réseau (ex: 'tcpdump port 80' pour le HTTP)."
+    },
+    {
+      "question": "Comment remplacer 'foo' par 'bar' dans tous les fichiers .txt d'un répertoire ?",
+      "options": [
+        "grep -l 'foo' *.txt | xargs sed -i 's/foo/bar/g'",
+        "echo 's/foo/bar/g' > *.txt",
+        "rm -rf *.txt",
+        "mv 'foo' 'bar' *.txt"
+      ],
+      "answer": "grep -l 'foo' *.txt | xargs sed -i 's/foo/bar/g'",
+      "explanation": "grep -l liste les fichiers contenant 'foo', xargs applique sed en masse pour le remplacement."
+    },
+    {
+      "question": "Quelle requête trouve les clients sans commande ?",
+      "options": [
+        "SELECT * FROM clients c INNER JOIN commandes co ON c.id = co.client_id",
+        "SELECT * FROM clients c LEFT JOIN commandes co ON c.id = co.client_id WHERE co.id IS NULL",
+        "SELECT COUNT(*) FROM clients",
+        "DELETE FROM clients WHERE id NOT IN (SELECT client_id FROM commandes)"
+      ],
+      "answer": "SELECT * FROM clients c LEFT JOIN commandes co ON c.id = co.client_id WHERE co.id IS NULL",
+      "explanation": "LEFT JOIN + WHERE IS NULL est le pattern classique pour trouver les absences de correspondance."
+    },
+    {
+      "question": "Comment suivre les appels système d'un processus en cours ?",
+      "options": [
+        "strace -p <PID>",
+        "tail -f /dev/null",
+        "ping localhost",
+        "chmod +x /proc/<PID>"
+      ],
+      "answer": "strace -p <PID>",
+      "explanation": "strace trace les appels système (open/read/write) d'un processus, crucial pour le debugging."
+    },
+    {
+      "question": "Pourquoi éviter 'SELECT *' en production ?",
+      "options": [
+        "Cela charge inutilement des colonnes non utilisées",
+        "La syntaxe est obsolète en SQL:2023",
+        "Cela corrompt les indexes",
+        "Cela déclenche toujours un full table scan"
+      ],
+      "answer": "Cela charge inutilement des colonnes non utilisées",
+      "explanation": "Sélectionner uniquement les colonnes nécessaires réduit la charge réseau/CPU."
+    },
+    {
+      "question": "Quel outil permet de gérer l'infrastructure comme code ?",
+      "options": [
+        "Terraform",
+        "Wireshark",
+        "MySQL Workbench",
+        "Nagios"
+      ],
+      "answer": "Terraform",
+      "explanation": "Terraform (HCL) et Ansible (YAML) sont les standards pour l'IaC (Infrastructure as Code)."
+    },
+    {
+      "question": "Comment vérifier les ports ouverts sur votre machine locale ?",
+      "options": [
+        "netstat -tuln",
+        "ping 127.0.0.1",
+        "curl ifconfig.me",
+        "dig localhost"
+      ],
+      "answer": "netstat -tuln",
+      "explanation": "netstat -tuln liste les ports en écoute (TCP/UDP) sans résolution DNS (-n)."
+    },
+    {
+      "question": "Pourquoi utiliser des transactions en base de données ?",
+      "options": [
+        "Pour accélérer les requêtes SELECT",
+        "Garantir l'intégrité (tout ou rien)",
+        "Contourner les limites de taille de table",
+        "Éviter les sauvegardes"
+      ],
+      "answer": "Garantir l'intégrité (tout ou rien)",
+      "explanation": "BEGIN/COMMIT/ROLLBACK assurent que les opérations multiples réussissent ou échouent ensemble."
+    },
+    {
+      "question": "Quel outil analyse l'exécution d'une requête PostgreSQL ?",
+      "options": [
+        "EXPLAIN ANALYZE",
+        "SHOW PROCESSLIST",
+        "DEBUG LOG",
+        "TABLE STATS"
+      ],
+      "answer": "EXPLAIN ANALYZE",
+      "explanation": "EXPLAIN ANALYZE affiche le plan d'exécution et le temps réel consommé."
+    },
+    {
+      "question": "Comment forcer l'arrêt d'un script Bash après la première erreur ?",
+      "options": [
+        "set -e",
+        "try/catch",
+        "exit 1",
+        "break on error"
+      ],
+      "answer": "set -e",
+      "explanation": "set -e fait échouer immédiatement le script si une commande retourne un code d'erreur."
+    },
+    {
+      "question": "Quelle commande montre le chemin réseau vers un serveur ?",
+      "options": [
+        "traceroute",
+        "ifconfig",
+        "arp -a",
+        "route -n"
+      ],
+      "answer": "traceroute",
+      "explanation": "traceroute affiche chaque saut (hop) entre votre machine et la destination, avec les temps de réponse."
+    }
+
   ]
 };
 

@@ -9,17 +9,17 @@ const Navbar = () => {
             <Nav>
                 <NavMenu>
                     <NavLink to="/n-forms" activeStyle>
-                    N-f4ms
+                   ooPY
                     </NavLink>
                     <NavLink to="/sign-up" activeStyle>
                     OOP.py
                     </NavLink>
 
                     <NavLink to="/contact" activeStyle>
-                    Uml/Big*O/TDD
+                    Uml/Big*O
                     </NavLink>
                     <NavLink to="/blogs" activeStyle>
-                    oopC#
+                    Linux
                     </NavLink>
 
                     <NavLink to="/signup" activeStyle>
@@ -29,7 +29,7 @@ const Navbar = () => {
                     linQ 
                     </NavLink>
                     <NavLink to="/apiamundi" activeStyle>
-                        API
+                        All Apps
                     </NavLink>
                 </NavMenu>
             </Nav>
