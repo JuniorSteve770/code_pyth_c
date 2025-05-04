@@ -23,7 +23,7 @@ const Navbar = () => {
                     </NavLink>
 
                     <NavLink to="/signup" activeStyle>
-                        c#ooPV2
+                    cmd
                     </NavLink>
                     <NavLink to="/etfamundi" activeStyle>
                     linQ 

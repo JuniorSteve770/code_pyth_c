@@ -3,270 +3,110 @@ import "./QCMStyles.css";
 
 // Flashcards pour le niveau basic
 const basicSlides = [
-    {
-        question: "Quelle est la différence entre List<T> et Dictionary<TKey, TValue> ?",
-        answer: "List<T> stocke des éléments indexés par leur position, tandis que Dictionary<TKey, TValue> stocke des paires clé-valeur pour un accès rapide via une clé unique."
-      },
-      {
-        question: "Quel est le rôle de LINQ dans C# ?",
-        answer: "LINQ (Language Integrated Query) permet d'interroger et transformer des données à partir de collections, de bases de données ou d'autres sources, en utilisant une syntaxe déclarative."
-      },
-      {
-        question: "Donnez un exemple d'utilisation de LINQ pour filtrer une liste.",
-        answer: "var nombresPairs = nombres.Where(n => n % 2 == 0); // Filtre les nombres pairs d'une liste."
-      },
-      {
-        question: "Comment gérer une exception spécifique en C# ?",
-        answer: "Utilisez un bloc try-catch avec le type d'exception approprié. Exemple : catch (DivideByZeroException ex) { Console.WriteLine(\"Division par zéro.\"); }"
-      },
-      {
-        question: "Quel est le rôle du bloc finally dans la gestion des exceptions ?",
-        answer: "Le bloc finally s'exécute toujours, indépendamment de l'occurrence d'une exception, garantissant ainsi la libération des ressources ou l'exécution de code de nettoyage."
-      },
-      {
-        question: "Quelle est la différence entre Debug.Assert et une exception ?",
-        answer: "Debug.Assert vérifie une condition pendant le débogage, tandis qu'une exception interrompt l'exécution normale du programme lorsqu'une erreur survient."
-      },
-      {
-        question: "Qu'est-ce qu'un test unitaire et pourquoi est-il important ?",
-        answer: "Un test unitaire valide qu'une unité de code fonctionne correctement isolément. Il garantit la fiabilité et facilite la maintenance du code."
-      },
-      {
-        question: "Quelle est la syntaxe pour écrire un test unitaire avec xUnit ?",
-        answer: "[Fact] public void TestAddition() { Assert.Equal(5, Calculatrice.Addition(2, 3)); }"
-      },
-      {
-        question: "Quelle est la différence entre [Fact] et [Theory] dans xUnit ?",
-        answer: "[Fact] teste un cas unique, tandis que [Theory] teste plusieurs cas avec des données fournies via [InlineData]."
-      },
-      {
-        question: "Comment utiliser LINQ pour trier une collection ?",
-        answer: "Utilisez OrderBy ou OrderByDescending. Exemple : var triees = nombres.OrderBy(n => n);"
-      },
-      {
-        question: "Quelle collection utiliseriez-vous pour éviter les doublons dans une liste ?",
-        answer: "HashSet<T> est idéal pour stocker des éléments uniques sans doublons."
-      },
-      {
-        question: "Comment ajouter un élément à une Dictionary<TKey, TValue> ?",
-        answer: "Utilisez la méthode Add ou l'assignation directe. Exemple : employes.Add(1, \"Alice\"); ou employes[2] = \"Bob\";"
-      },
-      {
-        question: "Quelle est la sortie du code suivant ?\nList<int> nombres = new List<int> { 1, 2, 3 }; nombres.RemoveAt(0); Console.WriteLine(nombres[0]);",
-        answer: "2, car RemoveAt(0) supprime le premier élément, et nombres[0] devient 2."
-      },
-      {
-        question: "Quelle est la meilleure pratique pour structurer un projet CRUD en C# ?",
-        answer: "Organiser le code par fonctionnalité (ex. dossier 'Produits' contenant les contrôleurs, services et modèles liés aux produits)."
-      },
-      {
-        question: "Quel framework pouvez-vous utiliser pour tester une API RESTful en C# ?",
-        answer: "Vous pouvez utiliser des frameworks comme NUnit, xUnit ou MSTest pour tester les endpoints de l'API."
-      },
-      {
-        question: "Comment déboguer efficacement un bug dans Visual Studio ?",
-        answer: "Utilisez des points d'arrêt (breakpoints), inspectez les variables avec la fenêtre 'Locals', et utilisez Debug.Assert pour valider des hypothèses."
-      },
-      {
-        question: "Quelle est la différence entre First() et FirstOrDefault() dans LINQ ?",
-        answer: "First() lève une exception si aucun élément n'est trouvé, tandis que FirstOrDefault() retourne la valeur par défaut (null ou 0) en cas d'absence d'élément."
-      },
-      {
-        question: "Pourquoi utiliser des tests unitaires dans un projet ?",
-        answer: "Les tests unitaires garantissent que chaque composant fonctionne correctement, réduisent les risques de régression et facilitent la maintenance."
-      },
-      {
-        question: "Quelle est la syntaxe pour créer une classe générique en C# ?",
-        answer: "public class Boite<T> { public T Contenu { get; set; } }"
-      },
-      {
-        question: "Quelle est la principale utilité des assertions dans le débogage ?",
-        answer: "Les assertions permettent de valider des hypothèses sur l'état du programme pendant le développement et le débogage."
-      },
-      {
-          "question": " Qu'est-ce qu'une `List<T>` en C# ?",
-          "answer": "Une collection générique qui représente une liste dynamique d'éléments de type T, permettant l'ajout, la suppression et l'accès aux éléments par index."
-        },
-        {
-          "question": " À quoi sert un `Dictionary<TKey, TValue>` ?",
-          "answer": "À stocker des paires clé/valeur, offrant un accès rapide aux valeurs via leurs clés uniques."
-        },
-        {
-          "question": " Que permet la méthode LINQ `Where()` ?",
-          "answer": "Elle filtre une collection en retournant les éléments qui satisfont une condition spécifiée."
-        },
-        {
-          "question": " Que fait la méthode LINQ `Select()` ?",
-          "answer": "Elle projette chaque élément d'une collection dans une nouvelle forme, souvent utilisée pour transformer les données."
-        },
-        {
-          "question": " Comment compter les éléments d'une collection avec LINQ ?",
-          "answer": "En utilisant la méthode `Count()`, qui retourne le nombre total d'éléments dans la collection."
-        },
-        {
-          "question": " Quelle est la structure d'un bloc try-catch-finally en C# ?",
-          "answer": "```csharp\ntry {\n    // Code pouvant générer une exception\n} catch (Exception ex) {\n    // Gestion de l'exception\n} finally {\n    // Code exécuté dans tous les cas\n}\n```"
-        },
-        {
-          "question": " Comment lever une exception personnalisée ?",
-          "answer": "En utilisant le mot-clé `throw` suivi d'une instance d'exception, par exemple : `throw new ArgumentException(\"Message d'erreur\");`"
-        },
-        {
-          "question": " Quel attribut est utilisé pour marquer une méthode de test dans MSTest ?",
-          "answer": "`[TestMethod]` est utilisé pour indiquer qu'une méthode est un test unitaire dans MSTest."
-        },
-        {
-          "question": " Quel attribut est utilisé pour marquer une méthode de test dans xUnit ?",
-          "answer": "`[Fact]` est utilisé pour indiquer une méthode de test sans paramètres dans xUnit."
-        },
-        {
-          "question": " Comment tester une exception attendue avec xUnit ?",
-          "answer": "En utilisant `Assert.Throws<T>(() => méthode())`, où T est le type d'exception attendu."
-        },
-        {
-          "question": " Quelle est la différence entre `[Fact]` et `[Theory]` dans xUnit ?",
-          "answer": "`[Fact]` est utilisé pour des tests sans paramètres, tandis que `[Theory]` permet des tests paramétrés avec des données d'entrée variables."
-        },
-        {
-          "question": " Comment marquer une classe de test dans MSTest ?",
-          "answer": "En utilisant l'attribut `[TestClass]` au-dessus de la définition de la classe."
-        },
-        {
-          "question": " Quel attribut MSTest est utilisé pour initialiser des ressources avant chaque test ?",
-          "answer": "`[TestInitialize]` est utilisé pour exécuter du code avant chaque méthode de test."
-        },
-        {
-          "question": "🧹 Quel attribut MSTest est utilisé pour nettoyer des ressources après chaque test ?",
-          "answer": "`[TestCleanup]` est utilisé pour exécuter du code après chaque méthode de test."
-        },
-        {
-          "question": " Comment vérifier qu'une méthode lève une exception spécifique dans MSTest ?",
-          "answer": "En utilisant l'attribut `[ExpectedException(typeof(ExceptionType))]` au-dessus de la méthode de test."
-        },
-        {
-          "question": " Comment initialiser des ressources une seule fois pour tous les tests d'une classe dans MSTest ?",
-          "answer": "En utilisant l'attribut `[ClassInitialize]` sur une méthode statique qui s'exécute une fois avant tous les tests de la classe."
-        },
-        {
-          "question": " Comment nettoyer des ressources une seule fois après tous les tests d'une classe dans MSTest ?",
-          "answer": "En utilisant l'attribut `[ClassCleanup]` sur une méthode statique qui s'exécute une fois après tous les tests de la classe."
-        },
-        {
-          "question": " Comment ignorer un test spécifique dans MSTest ?",
-          "answer": "En utilisant l'attribut `[Ignore]` au-dessus de la méthode de test que l'on souhaite ignorer."
-        },
-        {
-          "question": " Comment ignorer un test spécifique dans xUnit ?",
-          "answer": "En ajoutant le paramètre `Skip` à l'attribut `[Fact]`, par exemple : `[Fact(Skip = \"Raison\")]`."
-        },
-        {
-          "question": " Comment trier une collection en ordre croissant avec LINQ ?",
-          "answer": "En utilisant la méthode `OrderBy()`, par exemple : `collection.OrderBy(x => x.Propriété)`."
-        },
-        {
-            question: "Qu'est-ce qu'une collection générique en C# ?",
-            answer: "Une collection générique est une structure de données fortement typée qui peut stocker un nombre variable d'éléments, comme List<T> ou Dictionary<TKey, TValue>."
-          },
-          {
-            question: "Quelle est la différence entre List<T> et Array en C# ?",
-            answer: "List<T> est dynamique et peut changer de taille, tandis qu'un Array a une taille fixe définie lors de sa création."
-          },
-          {
-            question: "Comment utiliser LINQ pour filtrer des données dans une liste ?",
-            answer: "LINQ permet de filtrer des données à l'aide de méthodes comme Where(). Exemple : var result = list.Where(x => x > 10);"
-          },
-          {
-            question: "Quelle est la syntaxe pour trier une liste avec LINQ ?",
-            answer: "Utilisez OrderBy() ou OrderByDescending(). Exemple : var sorted = list.OrderBy(x => x);"
-          },
-          {
-            question: "Qu'est-ce que l'exception DivideByZeroException en C# ?",
-            answer: "Une exception levée lorsqu'une division par zéro est tentée dans le code."
-          },
-          {
-            question: "Quel est le rôle du bloc 'finally' dans un try-catch ?",
-            answer: "Le bloc 'finally' s'exécute toujours, indépendamment de l'occurrence d'une exception, pour libérer des ressources ou effectuer des nettoyages."
-          },
-          {
-            question: "Quelle est la différence entre throw et throw ex dans un catch ?",
-            answer: "throw préserve la pile d'appels originale, tandis que throw ex réinitialise la pile d'appels, ce qui peut rendre le débogage plus difficile."
-          },
-          {
-            question: "Qu'est-ce qu'un test unitaire en C# ?",
-            answer: "Un test unitaire vérifie qu'une unité spécifique de code (méthode ou fonction) fonctionne correctement de manière isolée."
-          },
-          {
-            question: "Quelle est la syntaxe pour écrire un test avec xUnit ?",
-            answer: "Utilisez [Fact] pour un test simple ou [Theory] avec [InlineData] pour des tests paramétrés. Exemple : [Fact] public void TestAddition() { Assert.Equal(5, 2 + 3); }"
-          },
-          {
-            question: "Quelle est la différence entre MSTest et xUnit ?",
-            answer: "MSTest est intégré à Visual Studio, tandis que xUnit est plus moderne et flexible, souvent préféré pour les projets open source."
-          },
-          {
-            question: "Comment déboguer efficacement une application C# ?",
-            answer: "Utilisez des points d'arrêt (breakpoints), inspectez les variables, et utilisez Debug.Assert pour valider des hypothèses."
-          },
-          {
-            question: "Quelle est la sortie du code suivant ?\nList<int> nombres = new List<int> { 1, 2, 3 }; nombres.Add(4); Console.WriteLine(nombres.Count);",
-            answer: "La sortie est 4, car la méthode Add() ajoute un élément à la liste, augmentant sa taille."
-          },
-          {
-            question: "Quelle est la différence entre Dictionary<TKey, TValue> et HashSet<T> ?",
-            answer: "Dictionary stocke des paires clé-valeur, tandis que HashSet stocke des éléments uniques sans doublons."
-          },
-          {
-            question: "Comment supprimer un élément d'un Dictionary<TKey, TValue> ?",
-            answer: "Utilisez Remove(key). Exemple : myDictionary.Remove(\"clé\");"
-          },
-          {
-            question: "Quelle est la syntaxe pour interroger une collection avec LINQ en syntaxe de requête ?",
-            answer: "Exemple : var result = from item in collection where item > 10 select item;"
-          },
-          {
-            question: "Quelle est la différence entre First() et FirstOrDefault() en LINQ ?",
-            answer: "First() lève une exception si aucun élément n'est trouvé, tandis que FirstOrDefault() retourne la valeur par défaut (null ou 0)."
-          },
-          {
-            question: "Quelle est la sortie du code suivant ?\nint[] nombres = { 1, 2, 3 }; var result = nombres.Select(x => x * 2); foreach (var n in result) Console.Write(n + \" \");",
-            answer: "La sortie est '2 4 6', car Select() transforme chaque élément en le multipliant par 2."
-          },
-          {
-            question: "Quelle est la différence entre Exception et ApplicationException en C# ?",
-            answer: "Exception est la classe de base pour toutes les exceptions, tandis que ApplicationException est une sous-classe spécifique aux exceptions liées à l'application."
-          },
-          {
-            question: "Quelle est la meilleure pratique pour gérer les exceptions dans un programme C# ?",
-            answer: "Utiliser des blocs try-catch spécifiques pour chaque type d'exception et éviter les catch généraux (catch (Exception ex)) sauf pour la journalisation finale."
-          },
-          {
-            question: "Quelle est la syntaxe pour créer une classe de test MSTest ?",
-            answer: "Ajoutez [TestClass] à la classe et [TestMethod] aux méthodes de test. Exemple : [TestClass] public class Tests { [TestMethod] public void TestMethod() { } }"
-          },
-          {
-            question: "Quelle est la différence entre Assert.AreEqual et Assert.IsTrue ?",
-            answer: "Assert.AreEqual vérifie que deux valeurs sont égales, tandis que Assert.IsTrue vérifie qu'une condition booléenne est vraie."
-          },
-          {
-            question: "Comment tester une méthode qui lève une exception en xUnit ?",
-            answer: "Utilisez Assert.Throws<T>(). Exemple : Assert.Throws<InvalidOperationException>(() => MaMethode());"
-          },
-          {
-            question: "Quelle est la sortie du code suivant ?\ntry { throw new ArgumentException(\"Erreur\"); } catch (Exception ex) { Console.WriteLine(ex.Message); }",
-            answer: "La sortie est 'Erreur', car le message de l'exception est affiché dans le bloc catch."
-          },
-          {
-            question: "Quelle est la différence entre un projet CRUD et un gestionnaire de contacts ?",
-            answer: "Un projet CRUD gère des opérations Create, Read, Update, Delete sur des données, tandis qu'un gestionnaire de contacts est un cas particulier de CRUD pour gérer des informations personnelles."
-          },
-          {
-            question: "Quelle est la syntaxe pour ajouter un élément à un HashSet<T> ?",
-            answer: "Utilisez Add(). Exemple : myHashSet.Add(\"élément\");"
-          },
-          {
-            question: "Quelle est la sortie du code suivant ?\nDictionary<int, string> dict = new Dictionary<int, string>(); dict.Add(1, \"A\"); dict[1] = \"B\"; Console.WriteLine(dict[1]);",
-            answer: "La sortie est 'B', car la valeur associée à la clé 1 est mise à jour."
-          }
+  {
+    "question": "Quels sont les composants clés du modèle TCP/IP ?",
+    "answer": "1. Couche Application (HTTP, FTP, DNS, etc.) 2. Couche Transport (TCP, UDP) 3. Couche Internet (IP, ICMP) 4. Couche Accès Réseau (Ethernet, Wi-Fi, etc.)"
+  },
+  {
+    "question": "Quels sont les outils de base pour construire un réseau ?",
+    "answer": "1. Routeur : relie plusieurs réseaux. 2. Switch : connecte plusieurs appareils d’un même réseau local. 3. Câbles Ethernet / Fibre. 4. Firewall : contrôle les flux entrants/sortants. 5. Points d’accès Wi-Fi : connectivité sans fil."
+  },
+  {
+    "question": "Que représente une adresse IP et un port ?",
+    "answer": "1. L'adresse IP identifie une machine sur le réseau. 2. Le port identifie un service sur cette machine (ex: 80 pour HTTP, 443 pour HTTPS, 22 pour SSH)."
+  },
+  {
+    "question": "Comment vérifier que la machine répond sur le réseau ?",
+    "answer": "Utiliser `ping <adresse IP>` pour tester la connectivité de base entre deux machines via ICMP."
+  },
+  {
+    "question": "Comment vérifier qu’un port est ouvert sur une machine distante ?",
+    "answer": "Utiliser `telnet <adresse IP> <port>` ou `nc -zv <ip> <port>` pour tester si un service écoute sur ce port."
+  },
+  {
+    "question": "Comment tracer le chemin réseau jusqu’à une machine distante ?",
+    "answer": "Utiliser `traceroute <adresse>` (ou `tracert` sous Windows) pour visualiser chaque saut entre vous et la destination."
+  },
+  {
+    "question": "Comment vérifier qu’un service HTTP ou une API est vivant ?",
+    "answer": "Utiliser `curl http://adresse` ou `wget http://adresse` pour tester si un service HTTP répond avec un code 200 ou autre."
+  },
+  {
+    "question": "Comment vérifier la résolution DNS d’un nom d’hôte ?",
+    "answer": "Utiliser `nslookup nom_d_hote` ou `dig nom_d_hote` pour vérifier que le nom est bien traduit en adresse IP."
+  },
+  {
+    "question": "Quels types de flux réseau peut-on rencontrer ?",
+    "answer": "1. FTP/SFTP pour transfert de fichiers. 2. HTTP/HTTPS pour API ou sites web. 3. Market data en temps réel (multicast, websocket, TCP). 4. Flux batch via CRON/SFTP/ETL."
+  },
+  {
+    "question": "Comment résoudre un timeout sur une API ?",
+    "answer": "1. Vérifier connectivité (`ping`, `telnet`, `curl`). 2. Vérifier si le service est lent ou indisponible. 3. Vérifier les règles firewall/proxy. 4. Relancer avec logs et timeouts augmentés."
+  },
+  {
+    "question": "Que faire si des données sont absentes dans un flux ?",
+    "answer": "1. Vérifier la source (FTP/API). 2. S'assurer de la réception complète. 3. Consulter les logs d’import. 4. Redémarrer ou relancer manuellement le flux."
+  },
+  {
+    "question": "Comment diagnostiquer un flux FTP cassé ?",
+    "answer": "1. Tester l'accès avec `sftp` ou `ftp`. 2. Vérifier les identifiants. 3. Contrôler les droits d'écriture/lecture. 4. Vérifier les logs côté serveur FTP."
+  },
+  {
+    "question": "Comment comprendre l’acheminement des données ?",
+    "answer": "1. Analyser les couches du modèle TCP/IP. 2. Identifier les points de passage (firewall, proxy, load balancer). 3. Étudier les protocoles utilisés (ex: HTTP, TCP, FTP)."
+  },
+  {
+    "question": "Quels tests effectuer en ligne de commande avant d'escalader ?",
+    "answer": "1. `ping` pour tester la connectivité. 2. `curl` pour tester un service. 3. `telnet` ou `nc` pour tester un port. 4. `dig/nslookup` pour DNS. 5. Vérifier les logs locaux."
+  },
+  {
+    "question": "Comment repérer les erreurs de connexion ou les timeouts ?",
+    "answer": "1. Vérifier les logs (application, système, réseau). 2. Observer les temps de réponse avec `curl -v`. 3. Utiliser `tcpdump` ou `wireshark` pour analyser les paquets réseau."
+  },
+  {
+    "question": "Comment expliquer les échanges applicatifs dans un projet ?",
+    "answer": "Exemple : L’application de pricing appelle l’API de market data via HTTP/REST. Les données récupérées sont stockées dans une base PostgreSQL. Un ETL envoie ces données vers un système BI. SFTP est utilisé pour exporter des rapports vers des partenaires externes."
+  },
+  {
+    "question": "Quelle est la différence entre TCP et UDP ?",
+    "answer": "TCP est orienté connexion, garantit la fiabilité, l’ordre et la vérification des paquets (ex : HTTP, FTP). UDP est plus rapide mais non fiable, utilisé pour la voix, la vidéo ou les données en temps réel (ex : DNS, VoIP, streaming)."
+  },
+  {
+    "question": "Quel outil en ligne de commande permet de capturer le trafic réseau ?",
+    "answer": "L’outil `tcpdump` permet de capturer et analyser les paquets réseau en temps réel. Exemple : `tcpdump -i eth0 port 80` capture le trafic HTTP sur l’interface eth0."
+  },
+  {
+    "question": "À quoi sert un firewall réseau ?",
+    "answer": "Il contrôle les flux entrants et sortants selon des règles de sécurité définies (filtrage IP, port, protocole), protégeant les systèmes contre des connexions non autorisées ou malveillantes."
+  },
+  {
+    "question": "Que signifie une erreur de type 'Connection refused' ?",
+    "answer": "Cela indique que l’IP est joignable mais qu’aucun service n’écoute sur le port ciblé. Causes possibles : service arrêté, firewall local, mauvaise config de port."
+  },
+  {
+    "question": "Quelles commandes permettent de diagnostiquer la bande passante réseau ?",
+    "answer": "Des outils comme `iperf` ou `speedtest-cli` permettent de tester la vitesse de transmission entre deux machines ou vers un serveur distant."
+  },
+  {
+    "question": "Pourquoi utiliser une redirection de port (port forwarding) ?",
+    "answer": "Elle permet d’accéder à un service interne derrière un NAT ou un routeur en exposant un port externe qui redirige vers un port local (ex : accès SSH à une machine interne)."
+  },
+  {
+    "question": "Comment expliquer une latence élevée dans un réseau ?",
+    "answer": "Elle peut être due à : congestion du réseau, distance géographique, problème de routage, équipement défaillant (switch, câble), ou surcharge serveur."
+  },
+  {
+    "question": "Quelle est la commande pour tester une requête DNS complète ?",
+    "answer": "`dig` (ou `nslookup`) permet d’interroger un serveur DNS et d’avoir les détails sur la résolution du nom de domaine (A, CNAME, MX…)."
+  },
+  {
+    "question": "Quelle différence entre un port TCP 'ouvert' et un port 'filtré' ?",
+    "answer": "Un port ouvert accepte les connexions, un port filtré bloque ou ignore les requêtes (souvent via firewall). Outils comme `nmap` permettent de les identifier."
+  },
+  {
+    "question": "Comment documenter une architecture réseau rencontrée en entreprise ?",
+    "answer": "1. Schématiser les composants (app, base, proxy, pare-feu, load balancer). 2. Identifier les flux entre chaque brique (protocole, port). 3. Spécifier les points critiques (sécurité, volumétrie, dépendances)."
+  }
            
 ];
 
@@ -274,171 +114,215 @@ const basicSlides = [
 const questions = {
   moyen: [
 
-        {
-            "question": "Quelle est la différence entre List<T> et Dictionary<TKey, TValue> ?",
-            "options": [
-                "List<T> stocke des paires clé-valeur, Dictionary<TKey, TValue> des éléments indexés",
-                "List<T> stocke des éléments indexés par position, Dictionary<TKey, TValue> des paires clé-valeur pour accès rapide",
-                "List<T> est immuable, Dictionary<TKey, TValue> est mutable",
-                "Aucune différence, ils fonctionnent de la même manière"
-            ],
-            "answer": "List<T> stocke des éléments indexés par position, Dictionary<TKey, TValue> des paires clé-valeur pour accès rapide",
-            "explanation": "List<T> est une collection ordonnée accessible par index, tandis que Dictionary<TKey, TValue> permet un accès rapide aux valeurs via des clés uniques."
-        },
-        {
-            "question": "Que fait ce code LINQ ?\nvar result = numbers.Where(n => n > 5).OrderBy(n => n);",
-            "options": [
-                "Supprime les nombres supérieurs à 5",
-                "Filtre les nombres > 5 et les trie par ordre croissant",
-                "Compte le nombre d'éléments > 5",
-                "Convertit les nombres en chaînes de caractères"
-            ],
-            "answer": "Filtre les nombres > 5 et les trie par ordre croissant",
-            "explanation": "Where() filtre les éléments selon la condition, et OrderBy() les trie en ordre croissant."
-        },
-        {
-            "question": "Comment gérer correctement une DivideByZeroException ?",
-            "options": [
-                "Ignorer l'exception",
-                "Utiliser un bloc try-catch spécifique",
-                "Désactiver les exceptions dans les paramètres du projet",
-                "Toujours utiliser finally sans catch"
-            ],
-            "answer": "Utiliser un bloc try-catch spécifique",
-            "explanation": "Il est recommandé d'attraper les exceptions spécifiques plutôt que la classe Exception de base."
-        },
-        {
-            "question": "Quel est le résultat de ce code ?\ntry {\n    int x = 0;\n    int y = 10 / x;\n}\ncatch (DivideByZeroException ex) {\n    Console.WriteLine(\"Erreur\");\n}\nfinally {\n    Console.WriteLine(\"Fini\");\n}",
-            "options": [
-                "Erreur\nFini",
-                "Fini",
-                "Erreur",
-                "Le code ne compile pas"
-            ],
-            "answer": "Erreur\nFini",
-            "explanation": "Le bloc catch gère l'exception, et finally s'exécute toujours."
-        },
-        {
-            "question": "Quelle est la différence entre [Fact] et [Theory] dans xUnit ?",
-            "options": [
-                "[Fact] est pour les tests asynchrones, [Theory] pour les tests synchrones",
-                "[Fact] teste un cas unique, [Theory] permet des tests paramétrés",
-                "[Fact] est obsolète, il faut toujours utiliser [Theory]",
-                "Aucune différence, ils sont interchangeables"
-            ],
-            "answer": "[Fact] teste un cas unique, [Theory] permet des tests paramétrés",
-            "explanation": "[Fact] est pour des tests simples, [Theory] permet d'utiliser [InlineData] pour tester plusieurs jeux de données."
-        },
-        {
-            "question": "Que fait ce code avec Dictionary ?\nvar dict = new Dictionary<int, string>();\ndict.Add(1, \"Un\");\ndict[2] = \"Deux\";\nConsole.WriteLine(dict[1]);",
-            "options": [
-                "Affiche \"Un\"",
-                "Affiche \"Deux\"",
-                "Lève une KeyNotFoundException",
-                "Affiche \"1\""
-            ],
-            "answer": "Affiche \"Un\"",
-            "explanation": "dict[1] retourne la valeur associée à la clé 1, qui est \"Un\"."
-        },
-        {
-            "question": "Quelle collection utiliser pour garantir l'unicité des éléments ?",
-            "options": [
-                "List<T>",
-                "Array",
-                "HashSet<T>",
-                "Dictionary<TKey, TValue>"
-            ],
-            "answer": "HashSet<T>",
-            "explanation": "HashSet<T> ne permet pas les doublons, contrairement à List<T>."
-        },
-        {
-            "question": "Que fait ce test xUnit ?\n[Theory]\n[InlineData(2, 2, 4)]\n[InlineData(3, 5, 8)]\npublic void TestAddition(int a, int b, int expected) {\n    Assert.Equal(expected, a + b);\n}",
-            "options": [
-                "Teste une seule addition",
-                "Teste plusieurs cas d'addition avec différentes valeurs",
-                "Teste la concaténation de chaînes",
-                "Teste la gestion des exceptions"
-            ],
-            "answer": "Teste plusieurs cas d'addition avec différentes valeurs",
-            "explanation": "[Theory] avec [InlineData] permet de tester plusieurs jeux de paramètres."
-        },
-        {
-            "question": "Quelle est la sortie de ce code ?\nList<int> list = new List<int> { 1, 2, 3 };\nlist.RemoveAt(1);\nConsole.WriteLine(list[1]);",
-            "options": [
-                "1",
-                "2",
-                "3",
-                "Erreur IndexOutOfRangeException"
-            ],
-            "answer": "3",
-            "explanation": "RemoveAt(1) supprime l'élément à l'index 1 (valeur 2), laissant [1, 3]. list[1] vaut donc 3."
-        },
-        {
-            "question": "Comment trier une List<string> par ordre alphabétique inverse ?",
-            "options": [
-                "list.Sort((a, b) => b.CompareTo(a));",
-                "list.OrderBy(x => x);",
-                "list.Reverse();",
-                "list.Sort().Reverse();"
-            ],
-            "answer": "list.Sort((a, b) => b.CompareTo(a));",
-            "explanation": "CompareTo avec b en premier paramètre effectue un tri décroissant."
-        },
-        {
-            "question": "Quelle est la meilleure pratique pour gérer les ressources dans un bloc try-catch ?",
-            "options": [
-                "Utiliser using pour les objets IDisposable",
-                "Ne pas gérer les ressources",
-                "Toujours utiliser finally sans using",
-                "Désactiver le garbage collector"
-            ],
-            "answer": "Utiliser using pour les objets IDisposable",
-            "explanation": "using garantit l'appel à Dispose() même en cas d'exception."
-        },
-        {
-            "question": "Que fait FirstOrDefault() si aucun élément ne correspond au filtre ?",
-            "options": [
-                "Lève une exception",
-                "Retourne null (ou default(T))",
-                "Crée un nouvel élément",
-                "Retourne le premier élément de la collection"
-            ],
-            "answer": "Retourne null (ou default(T))",
-            "explanation": "Contrairement à First(), FirstOrDefault() retourne la valeur par défaut plutôt que de lever une exception."
-        },
-        {
-            "question": "Comment tester qu'une méthode lève une exception spécifique en MSTest ?",
-            "options": [
-                "[ExpectedException(typeof(InvalidOperationException))]",
-                "try-catch avec Assert.Fail()",
-                "Assert.ThrowsException<InvalidOperationException>()",
-                "Les deux premières réponses"
-            ],
-            "answer": "Les deux premières réponses",
-            "explanation": "MSTest supporte les deux méthodes (attribut et méthode Assert)."
-        },
-        {
-            "question": "Quelle est la différence entre OrderBy() et ThenBy() en LINQ ?",
-            "options": [
-                "OrderBy() est pour le tri principal, ThenBy() pour les tris secondaires",
-                "ThenBy() est obsolète",
-                "OrderBy() fonctionne seulement sur les nombres",
-                "Aucune différence"
-            ],
-            "answer": "OrderBy() est pour le tri principal, ThenBy() pour les tris secondaires",
-            "explanation": "ThenBy() s'utilise après OrderBy() pour des tris multiples."
-        },
-        {
-            "question": "Que fait ce code avec HashSet ?\nvar set = new HashSet<int> { 1, 2, 2, 3 };\nConsole.WriteLine(set.Count);",
-            "options": [
-                "3",
-                "4",
-                "1",
-                "Erreur de compilation"
-            ],
-            "answer": "3",
-            "explanation": "HashSet élimine automatiquement les doublons (ici, la valeur 2)."
-        }
+    {
+      "question": "Quelle commande permet de lister tous les fichiers, y compris les fichiers cachés ?",
+      "options": [
+        "pwd",
+        "ls -la",
+        "cat",
+        "find"
+      ],
+      "answer": "ls -la",
+      "explanation": "La commande `ls -la` permet d'afficher tous les fichiers, même les fichiers cachés (ceux commençant par un point)."
+    },
+    {
+      "question": "Quelle commande permet de créer un dossier ?",
+      "options": [
+        "cd",
+        "touch",
+        "mkdir",
+        "open"
+      ],
+      "answer": "mkdir",
+      "explanation": "`mkdir` (make directory) est utilisée pour créer un nouveau dossier."
+    },
+    {
+      "question": "Quelle commande permet d'afficher le chemin absolu du dossier courant ?",
+      "options": [
+        "cd",
+        "pwd",
+        "ls",
+        "clear"
+      ],
+      "answer": "pwd",
+      "explanation": "La commande `pwd` (print working directory) affiche le chemin complet du répertoire actuel."
+    },
+    {
+      "question": "Quelle commande permet de supprimer un dossier et son contenu ?",
+      "options": [
+        "mv",
+        "rm -r",
+        "clear",
+        "chmod"
+      ],
+      "answer": "rm -r",
+      "explanation": "`rm -r` supprime récursivement un dossier et tout son contenu. Attention : c'est une commande dangereuse."
+    },
+    {
+      "question": "Quelle commande est utilisée pour rechercher un mot dans un fichier ?",
+      "options": [
+        "less",
+        "grep",
+        "find",
+        "cat"
+      ],
+      "answer": "grep",
+      "explanation": "`grep` permet de rechercher une chaîne de caractères dans un ou plusieurs fichiers."
+    },
+    {
+      "question": "Quelle commande est utilisée pour afficher les processus en cours ?",
+      "options": [
+        "scp",
+        "ps aux",
+        "chmod",
+        "history"
+      ],
+      "answer": "ps aux",
+      "explanation": "`ps aux` permet de visualiser tous les processus en cours d'exécution sur la machine."
+    },
+    {
+      "question": "Quelle commande permet de copier un fichier d'un serveur à un autre ?",
+      "options": [
+        "scp",
+        "mv",
+        "cat",
+        "cd"
+      ],
+      "answer": "scp",
+      "explanation": "`scp` (secure copy) est utilisée pour transférer un fichier de manière sécurisée via SSH."
+    },
+    {
+      "question": "Quelle commande affiche l'historique des commandes ?",
+      "options": [
+        "man",
+        "history",
+        "less",
+        "open"
+      ],
+      "answer": "history",
+      "explanation": "`history` affiche la liste des commandes précédemment exécutées dans le terminal."
+    },
+    {
+      "question": "Quelle commande sert à planifier des tâches automatiques ?",
+      "options": [
+        "touch",
+        "crontab",
+        "ps aux",
+        "grep"
+      ],
+      "answer": "crontab",
+      "explanation": "`crontab` permet de planifier l’exécution automatique de commandes à intervalles réguliers."
+    },
+    {
+      "question": "Quelle commande permet de modifier les permissions d’un fichier ?",
+      "options": [
+        "chmod",
+        "cat",
+        "scp",
+        "mkdir"
+      ],
+      "answer": "chmod",
+      "explanation": "`chmod` modifie les droits d'accès d'un fichier ou dossier (lecture, écriture, exécution)."
+    },
+    {
+      "question": "Quelle commande permet de changer de répertoire dans un terminal Linux ?",
+      "options": [
+        "ls",
+        "cd",
+        "pwd",
+        "mv"
+      ],
+      "answer": "cd",
+      "explanation": "`cd` (change directory) permet de naviguer dans l’arborescence des dossiers."
+    },
+    {
+      "question": "Quelle commande permet d’afficher le contenu d’un fichier texte ?",
+      "options": [
+        "touch",
+        "cat",
+        "chmod",
+        "clear"
+      ],
+      "answer": "cat",
+      "explanation": "`cat` est utilisée pour afficher directement le contenu d’un fichier dans le terminal."
+    },
+    {
+      "question": "Quelle commande Linux est utilisée pour consulter un long fichier page par page ?",
+      "options": [
+        "cat",
+        "less",
+        "top",
+        "ps aux"
+      ],
+      "answer": "less",
+      "explanation": "`less` est idéale pour lire les fichiers volumineux page par page avec navigation possible (flèches, recherche)."
+    },
+    {
+      "question": "Quelle commande permet de créer un fichier vide ?",
+      "options": [
+        "mkdir",
+        "mv",
+        "touch",
+        "open"
+      ],
+      "answer": "touch",
+      "explanation": "`touch` crée un fichier vide ou met à jour la date de modification s’il existe déjà."
+    },
+    {
+      "question": "Quelle commande permet d’ouvrir un fichier ou un dossier avec l’interface graphique sous Linux ?",
+      "options": [
+        "xdg-open",
+        "open",
+        "less",
+        "cd"
+      ],
+      "answer": "xdg-open",
+      "explanation": "`xdg-open` ouvre un fichier/dossier dans l’application graphique par défaut (utile pour GUI depuis terminal)."
+    },
+    {
+      "question": "Quelle commande permet de rechercher des fichiers selon un nom ou une extension ?",
+      "options": [
+        "grep",
+        "find",
+        "cat",
+        "mv"
+      ],
+      "answer": "find",
+      "explanation": "`find` permet de localiser des fichiers par nom, type ou date de modification, avec de nombreux filtres possibles."
+    },
+    {
+      "question": "Quelle commande permet d'afficher le manuel d'utilisation d'une commande ?",
+      "options": [
+        "man",
+        "help",
+        "info",
+        "doc"
+      ],
+      "answer": "man",
+      "explanation": "`man` permet d’accéder à la documentation complète d’une commande (ex: `man ls`)."
+    },
+    {
+      "question": "Quelle commande nettoie l’écran du terminal ?",
+      "options": [
+        "clean",
+        "clear",
+        "reset",
+        "flush"
+      ],
+      "answer": "clear",
+      "explanation": "`clear` vide le contenu de l’écran, mais n’efface pas l’historique des commandes."
+    },
+    {
+      "question": "Quelle commande permet de déplacer ou renommer un fichier ?",
+      "options": [
+        "cp",
+        "mv",
+        "rm",
+        "rename"
+      ],
+      "answer": "mv",
+      "explanation": "`mv` (move) sert à déplacer un fichier ou à le renommer dans le système de fichiers."
+    }
   ],
   avance: [
     {

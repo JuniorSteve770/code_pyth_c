@@ -3,6 +3,32 @@ import "./QCMStyles.css";
 
 // Flashcards pour le niveau basic
 const basicSlides = [
+
+
+  {
+    "question": "Quelles sont les responsabilités clés d'un Business Analyst (BA) ?",
+    "answer": "1. Recueil et formalisation des besoins métier. 2. Rédaction des spécifications fonctionnelles (UML). 3. Coordination avec les équipes projet (MOA/MOE). 4. Suivi de projet et gestion des tests (Agile, UAT). 5. Accompagnement du changement et recueil des évolutions."
+  },
+  {
+    "question": "Quelles sont les responsabilités clés d'un expert BI (Business Intelligence) ?",
+    "answer": "1. Identification des sources de données et définition des KPIs. 2. Modélisation des tableaux de bord et des data models. 3. Développement des requêtes SQL/ETL et création de dashboards. 4. Contrôle qualité des données et du reporting. 5. Mise en place des accès, support utilisateur, mise à jour des indicateurs."
+  },
+  {
+    "question": "Quelles sont les responsabilités clés de la MOA (Maîtrise d’Ouvrage) ?",
+    "answer": "1. Définit les objectifs métier du projet et rédige le cahier des charges. 2. Valide les fonctionnalités, hiérarchise les besoins, s'assure que la solution répond aux objectifs. 3. Valide les grandes orientations en cours de projet et la conformité métier. 4. Organise la mise en production, forme les utilisateurs et donne le GO de production. 5. Planifie les nouvelles versions et assure la gouvernance du projet."
+  },
+  {
+    "question": "Quelles sont les responsabilités clés de la MOE (Maîtrise d’Œuvre) ?",
+    "answer": "1. Étudie la faisabilité technique et réalise l’analyse préliminaire. 2. Propose une solution technique adaptée, réalise le chiffrage et conçoit l’architecture. 3. Définit les choix technologiques, développe les flux/API et intègre les modules. 4. Effectue les tests techniques (unitaires/intégration) et déploie la solution. 5. Maintient le système et gère les évolutions et correctifs techniques."
+  },
+  {
+    "question": "Quelles sont les responsabilités clés d'un Business Analyst (BA) ?",
+    "answer": "1. Recueil et formalisation des besoins métier (ateliers, cas d’usage, enjeux). 2. Rédaction des spécifications fonctionnelles (UML, BPMN). 3. Coordination avec les équipes projet (MOA/MOE). 4. Suivi de projet et gestion des tests (Agile, UAT). 5. Accompagnement du changement et recueil des évolutions."
+  },
+  {
+    "question": "Quelles sont les responsabilités clés d'un expert BI (Business Intelligence) ?",
+    "answer": "1. Identification des sources de données et définition des KPIs. 2. Modélisation des tableaux de bord et des data models. 3. Développement des requêtes SQL/ETL et création de dashboards. 4. Contrôle qualité des données et du reporting. 5. Mise en place des accès, support utilisateur, mise à jour des indicateurs."
+  },
   {
     "question": "Quel est le rôle du BA lors du cadrage du besoin ?",
     "answer": "Recueillir les besoins métier, animer les ateliers et formaliser les enjeux."
